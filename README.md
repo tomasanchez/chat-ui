@@ -1,2 +1,3 @@
-# chat-ui
-A Chat User Interface
+# Chat UI
+
+A Chat User Interface using Material UI
