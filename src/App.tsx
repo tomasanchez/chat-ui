@@ -10,13 +10,14 @@ function App() {
 
     const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
+    const theme = getTheme(prefersDarkMode ? 'dark' : 'light');
+
     return (
-        <ThemeProvider theme={getTheme(prefersDarkMode ? 'dark' : 'light')}>
+        <ThemeProvider theme={theme}>
             <CssBaseline/>
             <Suspense fallback={<LoadingPage/>}>
                 <RouterProvider router={router}/>
             </Suspense>
-
         </ThemeProvider>
     )
 }
