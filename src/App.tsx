@@ -1,6 +1,10 @@
 import './App.css'
 import {CssBaseline, ThemeProvider, useMediaQuery} from "@mui/material";
 import {getTheme} from "./theme/themes.ts";
+import {RouterProvider} from "react-router-dom";
+import router from "./Router.tsx";
+import {Suspense} from "react";
+import LoadingPage from "./pages/LoadingPage.tsx";
 
 function App() {
 
@@ -9,9 +13,10 @@ function App() {
     return (
         <ThemeProvider theme={getTheme(prefersDarkMode ? 'dark' : 'light')}>
             <CssBaseline/>
-            <div className="App">
-                <h1>Hello world!</h1>
-            </div>
+            <Suspense fallback={<LoadingPage/>}>
+                <RouterProvider router={router}/>
+            </Suspense>
+
         </ThemeProvider>
     )
 }
